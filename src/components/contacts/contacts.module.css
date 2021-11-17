@@ -1,0 +1,66 @@
+.contacts {
+    width: 350px;
+    border: 1px solid grey;
+    background-color: #f7f8f9;
+    border-radius: 5px;
+}
+.contact-scrool::-webkit-scrollbar {
+    width: 1px;
+}
+.contact-scrool {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 800px;
+}
+.content {
+    width: 1600px;
+    height: 900px;
+    display: flex;
+    margin: auto;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+.contact-logo img {
+    width: 50px;
+    margin-right: 10px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+.contact {
+    display: flex;
+    padding: 10px 0 10px 10px;
+    border-bottom: 1px solid #000;
+    align-items: center;
+}
+.contact:hover {
+    background-color: lightblue;
+}
+.contact-name {
+    width: 200px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.contact-lastMessage {
+    margin-top: 5px;
+    margin-left: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    color: grey;
+}
+.contact-inputs input{
+    outline: none;
+    width: 200px;
+    border-radius: 10px;
+    margin: 15px 0 20px 30px;
+    height: 30px;
+    border: 1px solid black;
+    padding-left: 10px;
+}
+.time {
+   width: 40px;
+   font-size: 14px;
+   color: grey;
+}
+.active {
+    color: black;
+}
