@@ -2,6 +2,7 @@ import { applyMiddleware, combineReducers, createStore } from "redux";
 import thunk from "redux-thunk";
 import { createLogger } from "redux-logger";
 import contact from "./contact";
+import messages from "./messages";
 
 const logger = createLogger({
   diff: true,
@@ -10,6 +11,7 @@ const logger = createLogger({
 
 const rootReducer = combineReducers({
   contact: contact,
+  message: messages
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));
