@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import styles from "./chat.module.css";
 import LeftMessage from "./LeftMessage";
 import RightMessage from "./RightMessage";
 function Message(props) {

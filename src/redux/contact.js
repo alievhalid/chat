@@ -3,7 +3,15 @@ const initialState = {
   loading: false,
   filter: "",
   profile_id: "5f2ea3801f986a01cefc8bcd",
+  contactId: '',
 };
+
+export const setContactId = (contactId) => {
+  return {
+    type: 'select/contact/id',
+    payload: contactId
+  }
+}
 
 export const loadContact = () => {
   return (dispatch) => {
@@ -46,6 +54,11 @@ const contact = (state = initialState, action) => {
         ...state,
         filter: action.payload,
       };
+    case "select/contact/id":
+      return {
+        ...state,
+         contactId: action.payload
+      }
 
     default:
       return state;
