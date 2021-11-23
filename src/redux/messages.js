@@ -9,7 +9,7 @@ const initialState = {
 export const handleAddMessage = (myId, messageText, contactId) => {
   return (dispatch) => {
     dispatch({
-      type: "message/send/start"
+      type: "message/send/start",
     });
     fetch("https://api.intocode.ru:8001/api/messages", {
       method: "POST",
@@ -30,14 +30,7 @@ export const handleAddMessage = (myId, messageText, contactId) => {
           payload: json,
         });
       });
-      messagesDownScroll();
-  };
-};
-
-export const messageText = (messageText) => {
-  return {
-    type: "set/message",
-    payload: messageText,
+    messagesDownScroll();
   };
 };
 
@@ -55,6 +48,7 @@ export const loadMessage = (id) => {
           type: "message/load/success",
           payload: json,
         });
+        messagesDownScroll();
       });
   };
 };
@@ -81,7 +75,7 @@ const message = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        payload: action.payload,
+        message: [...state.message, action.payload],
       };
 
     default:

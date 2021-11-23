@@ -3,13 +3,21 @@ const initialState = {
   loading: false,
   filter: "",
   profile_id: "5f2ea3801f986a01cefc8bcd",
-  contactId: '',
+  contactId: "",
+  profileOpen: false
 };
 
 export const setContactId = (contactId) => {
   return {
-    type: 'select/contact/id',
-    payload: contactId
+    type: "select/contact/id",
+    payload: contactId,
+  };
+};
+
+export const openProfile = (profile) => {
+  return {
+    type: 'profile/open',
+    payload: !profile
   }
 }
 
@@ -57,7 +65,12 @@ const contact = (state = initialState, action) => {
     case "select/contact/id":
       return {
         ...state,
-         contactId: action.payload
+        contactId: action.payload,
+      };
+    case "profile/open":
+      return {
+        ...state,
+        profileOpen: action.payload,
       }
 
     default:

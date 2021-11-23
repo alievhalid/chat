@@ -5,10 +5,10 @@ import * as dayjs from "dayjs";
 import { useDispatch } from "react-redux";
 import { setContactId } from "../../redux/contact";
 function Contact(props) {
-    const dispatch = useDispatch();
-    const handleContactId = () => {
-        dispatch(setContactId(props.contact._id))
-    }
+  const dispatch = useDispatch();
+  const handleContactId = () => {
+    dispatch(setContactId(props.contact._id));
+  };
   return (
     <div>
       <NavLink to={`/${props.contact._id}`} className="active">

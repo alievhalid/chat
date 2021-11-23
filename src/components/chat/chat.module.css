@@ -1,5 +1,5 @@
 .chat {
-  width: 1300px;
+  width: 1850px;
   border: 1px solid grey;
 }
 .search img {
@@ -57,20 +57,47 @@ a {
   text-decoration: none;
 }
 .message {
-  width: 1260px;
   overflow-y: scroll;
   height: 800px;
+  text-align: end;
 }
-.right-message  {
-  color: blue;
+.left-message p {
+  max-width: 200px;
+  text-align: left;
+  margin-left: 10px;
+  border: solid 1px grey;
+  word-break: break-all;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 0 15px 15px 15px;
+  background-color: #efefef;
 }
 .right-message p {
-  margin-left: 100vh;
-  text-align: end;
+  max-width: 300px;
+  display: inline-table;
   margin-right: 10px;
+  border: solid 1px grey;
+  word-break: break-all;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 15px 0 15px 15px;
+  background-color: #efefef;
 }
-
+.center-message p {
+  width: 200px;
+  padding: 10px;
+  border: solid 1px grey;
+  border-radius: 20px;
+  margin: auto;
+  text-align: center;
+  font-size: 20px;
+  height: 30px;
+  background-color: #efefef;
+}
 
 .message::-webkit-scrollbar {
   width: 1px;
+}
+.active {
+  color: black;
 }

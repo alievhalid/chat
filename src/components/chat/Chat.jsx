@@ -1,16 +1,21 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router";
+import { openProfile } from "../../redux/contact";
 import styles from "./chat.module.css";
 import Messages from "./Messages";
-
 function Chat() {
   const param = useParams().id;
+  const open = useSelector((state) => state.contact.profileOpen)
   const profile = useSelector((state) =>
     state.contact.contact.find((item) => {
       return param === item._id;
     })
   );
+  const dispatch = useDispatch()
+  const handleShow = (id) => {
+    dispatch(openProfile(!id))
+  }
   return (
     <div className={styles.chat}>
       <div className={styles["chat-header"]}>
@@ -25,7 +30,7 @@ function Chat() {
           <img
             src="https://communityevolution.org/wp-content/uploads/2020/02/missing-profile-picture-1.jpg"
             alt=""
-          />
+            onClick={() => handleShow(!open)}/>
         </div>
       </div>
       <Messages />

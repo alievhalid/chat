@@ -9,7 +9,6 @@ function Messages() {
   const messages = useSelector((state) => state.message.message);
   const contactId = useSelector((state) => state.contact.contactId);
   const myId = useSelector((state) => state.contact.profile_id);
-  console.log(contactId);
   const param = useParams().id;
   const dispatch = useDispatch();
   const [value, setValue] = useState("");
@@ -26,7 +25,7 @@ function Messages() {
   }, [dispatch, param]);
   return (
     <div className={styles.messages}>
-      <div id="chat-window" className={styles.message} >
+      <div id="chat-window" className={styles.message}>
         {messages.map((message, index) => {
           return <Message message={message} key={index} />;
         })}
@@ -45,14 +44,18 @@ function Messages() {
             onChange={messageText}
           />
           <div className={styles.send} onClick={handleClick}>
-            <img
-              src="https://cdn2.iconfinder.com/data/icons/dark-action-bar-2/96/send-512.png"
-              alt=""
-            />
-            {/* <img
-            src="https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded_nologo/3412773/3412773-1583503740424-2df9a60b9b249.jpg"
-            alt=""
-          /> */}
+            {value.length >= 1 ? (
+              <img
+                src="https://cdn2.iconfinder.com/data/icons/dark-action-bar-2/96/send-512.png"
+                alt=""
+                onClick={handleClick}
+              />
+            ) : (
+              <img
+                src="https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded_nologo/3412773/3412773-1583503740424-2df9a60b9b249.jpg"
+                alt=""
+              />
+            )}
           </div>
         </div>
       </div>

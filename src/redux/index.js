@@ -11,7 +11,7 @@ const logger = createLogger({
 
 const rootReducer = combineReducers({
   contact: contact,
-  message: messages
+  message: messages,
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));

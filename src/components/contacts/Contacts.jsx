@@ -27,7 +27,7 @@ function Contacts() {
       </div>
       <div className={styles["contact-scrool"]}>
         {filteredContacts.map((contact, index) => {
-          return <Contact contact={contact} key={index} />
+          return <Contact contact={contact} key={index} />;
         })}
       </div>
     </div>
