@@ -2,11 +2,14 @@
   width: 1850px;
   border: 1px solid grey;
 }
-.search img {
-  width: 36px;
-  height: 35px;
+.search input {
+  width: 150px;
+  height:15px;
+  border: 1px solid grey;
   border-radius: 5px;
+  margin-left: 10px;
   cursor: pointer;
+  outline: none;
   padding: 5px;
 }
 .chat-header {

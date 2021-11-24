@@ -7,6 +7,7 @@ const initialState = {
   profileOpen: false
 };
 
+// получаем id контакта на которого кликнули
 export const setContactId = (contactId) => {
   return {
     type: "select/contact/id",
@@ -14,12 +15,16 @@ export const setContactId = (contactId) => {
   };
 };
 
+// информация о открытие/закрытие профиля
+
 export const openProfile = (profile) => {
   return {
     type: 'profile/open',
     payload: !profile
   }
 }
+
+// получаем список контактов
 
 export const loadContact = () => {
   return (dispatch) => {
@@ -36,6 +41,8 @@ export const loadContact = () => {
       });
   };
 };
+
+// фильтруем контакты
 
 export const setFilterText = (text) => {
   return {

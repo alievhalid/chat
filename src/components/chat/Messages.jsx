@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./chat.module.css";
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loadMessage, handleAddMessage } from "../../redux/messages";
 import { useParams } from "react-router";
 import Message from "./Message";
 function Messages() {
   const messages = useSelector((state) => state.message.message);
+  const filter = useSelector((state) => state.message.filter);
   const contactId = useSelector((state) => state.contact.contactId);
   const myId = useSelector((state) => state.contact.profile_id);
   const param = useParams().id;
@@ -19,14 +19,17 @@ function Messages() {
   const messageText = (event) => {
     setValue(event.target.value);
   };
-
+  const filteredMessage = messages.filter(
+    (message) =>
+      message.content.toUpperCase().indexOf(filter.toUpperCase()) > -1
+  );
   useEffect(() => {
     dispatch(loadMessage(param));
   }, [dispatch, param]);
   return (
     <div className={styles.messages}>
       <div id="chat-window" className={styles.message}>
-        {messages.map((message, index) => {
+        {filteredMessage.map((message, index) => {
           return <Message message={message} key={index} />;
         })}
       </div>

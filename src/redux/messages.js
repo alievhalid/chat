@@ -4,7 +4,10 @@ const initialState = {
   message: [],
   loading: false,
   messageText: "",
+  filter: "",
 };
+
+// отправка сообщения в чате
 
 export const handleAddMessage = (myId, messageText, contactId) => {
   return (dispatch) => {
@@ -34,6 +37,8 @@ export const handleAddMessage = (myId, messageText, contactId) => {
   };
 };
 
+// получаем список сообщение для чата
+
 export const loadMessage = (id) => {
   return (dispatch) => {
     dispatch({
@@ -50,6 +55,15 @@ export const loadMessage = (id) => {
         });
         messagesDownScroll();
       });
+  };
+};
+
+// фильтруем сообщения
+
+export const filterMessage = (message) => {
+  return {
+    type: "message/filter",
+    payload: message,
   };
 };
 
@@ -76,6 +90,11 @@ const message = (state = initialState, action) => {
         ...state,
         loading: false,
         message: [...state.message, action.payload],
+      };
+    case "message/filter":
+      return {
+        ...state,
+        filter: action.payload,
       };
 
     default:
