@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import { setContactId } from "../../redux/contact";
 function Contact(props) {
   const dispatch = useDispatch();
+
+  // получаем id по клику на контакт
   const handleContactId = () => {
     dispatch(setContactId(props.contact._id));
   };

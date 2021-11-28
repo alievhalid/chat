@@ -5,6 +5,8 @@ import styles from "./profile.module.css";
 function Profile() {
   const param = useParams().id;
   const profile = useSelector((state) =>
+
+  // определяем какой контакт сейчас открыт
     state.contact.contact.find((item) => {
       return param === item._id;
     })

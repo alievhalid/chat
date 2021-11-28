@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import Content from "../components/contacts/Content";
+import Content from "./Content";
 import {loadContact} from "../redux/contact"
 function App() {
   const dispatch = useDispatch();

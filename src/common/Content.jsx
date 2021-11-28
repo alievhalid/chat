@@ -1,9 +1,9 @@
 import React from "react";
-import Chat from "../chat/Chat";
-import Contacts from "./Contacts";
-import styles from "./contacts.module.css";
+import Chat from "../components/chat/Chat";
+import Contacts from "../components/contacts/Contacts";
+import styles from "../components/contacts/contacts.module.css"
 import { Route, Routes } from "react-router-dom";
-import Profile from "../profile/Profile";
+import Profile from "../components/profile/Profile";
 import { CSSTransition } from "react-transition-group";
 import { useSelector } from "react-redux";
 function Content() {
@@ -14,6 +14,7 @@ function Content() {
       <Routes>
         <Route path={"/:id"} element={<Chat />} />
       </Routes>
+      {/* анимация открытия/закрытия профиля */}
       <CSSTransition in={open} timeout={1000} unmountOnExit className="my-node">
         <Routes>
           <Route path={"/:id"} element={<Profile />} />
