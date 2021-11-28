@@ -83,7 +83,6 @@ const message = (state = initialState, action) => {
     case "message/send/start":
       return {
         ...state,
-        loading: true,
       };
     case "message/send/success":
       return {
